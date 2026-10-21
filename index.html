@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+/* ============================================================
+   ЦЕНЫ НА САЙТЕ G.A.S. Unity studio — меняйте только здесь
+   ------------------------------------------------------------
+   • Меняйте только цифры в кавычках: "9 900" -> "10 500".
+     Пробел внутри числа не обязателен, "10500" тоже подойдёт.
+   • Названия слева, кавычки, запятые и скобки не трогайте.
+   • Знак ₽ и слово «от» сайт добавит сам.
+   • «Полировка кузова от …» в прайс-листе берётся автоматически
+     из лёгкой полировки для седана.
+   ============================================================ */
+window.PRICES = {
+  // Прайс-лист «Услуги и цены» (на сайте пишется «от …»)
+  "Абразивная полировка кузова": "13 000",
+  "Предпродажная подготовка":    "18 000",
+  "Детейлинг":                   "20 000",
+  "Автохимчистка":               "8 000",
+  "Антибактериальная обработка": "8 000",
+  "Защитное покрытие":           "3 000",
+  "Полировка фар":               "1 500",
+
+  // Три уровня полировки: ["седан / универсал", "внедорожник / кроссовер"]
+  "Полировка лёгкая":   ["9 900",  "14 000"],
+  "Полировка средняя":  ["15 000", "19 000"],
+  "Полировка глубокая": ["20 000", "25 000"]
+};
+</script>
+<title>G.A.S. Unity studio — полировка и детейлинг в Санкт-Петербурге</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<meta name="description" content="G.A.S. Unity studio: полировка кузова, керамика, химчистка и детейлинг в Санкт-Петербурге, Кубинская 21. Бесплатный осмотр под профессиональным светом, фото работ до и после.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="G.A.S. Unity studio">
+<meta property="og:title" content="G.A.S. Unity studio — полировка и детейлинг в Санкт-Петербурге">
+<meta property="og:description" content="Желание видеть результат приводит к нам. Полировка, керамика, химчистка и детейлинг. Кубинская 21, ежедневно 9:00–24:00.">
+<meta property="og:image" content="work/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0c0f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%230a0c0f%27/%3E%3Crect x=%2710%27 y=%2744%27 width=%2744%27 height=%273%27 rx=%271.5%27 fill=%27%234f8dff%27/%3E%3Ctext x=%2732%27 y=%2739%27 text-anchor=%27middle%27 font-family=%27Arial Black,Arial,sans-serif%27 font-weight=%27900%27 font-size=%2730%27 fill=%27%23e9eef4%27%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: «окрасочный бокс» — графитовые панели, линейный свет ламп как единственный акцент; секции идут как этапы визита */
+:root{
+  --bg:#0a0c0f; --panel:#11151a; --panel2:#161b22; --line:#232b35;
+  --fg:#e9eef4; --muted:#8a95a3; --accent:#4f8dff; --accent-soft:rgba(79,141,255,.14); --lamp:#f4f8ff;
+  --display:'Unbounded','Arial Black',Arial,sans-serif;
+  --body:'Manrope',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --gut-l:max(16px,env(safe-area-inset-left,0px)); --gut-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);margin:0;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+section{padding-block:88px}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h2{font-size:clamp(1.7rem,4.4vw,2.7rem);margin-bottom:16px}
+.lead{color:var(--muted);max-width:60ch;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 .95rem var(--body);padding:15px 24px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s,box-shadow .2s}
+.btn.primary{background:var(--accent);color:#04101f;box-shadow:0 8px 30px -8px rgba(79,141,255,.7)}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px -8px rgba(79,141,255,.9)}
+.btn.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ghost:hover{background:var(--panel2)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(10,12,15,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.02rem;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+.logo span{color:var(--accent)}
+.logo small{font-family:var(--mono);font-weight:400;font-size:.68rem;color:var(--muted);letter-spacing:.14em;margin-left:6px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.9rem;color:var(--muted)}
+.nav ul a{text-decoration:none}
+.nav ul a:hover{color:var(--fg)}
+@media(max-width:900px){.nav ul{display:none}}
+
+/* header CTA: blueprint side view of a Toyota Supra Mk4 with a dimension line as the label */
+.car{display:block;flex-shrink:0;transition:transform .2s,filter .2s}
+.car:hover{transform:translateY(-2px);filter:drop-shadow(0 0 6px rgba(79,141,255,.55))}
+.car svg{display:block;height:56px;width:auto;overflow:visible}
+.car svg *{vector-effect:non-scaling-stroke}
+.car .bp{fill:none;stroke:rgba(233,238,244,.92);stroke-width:1;stroke-linejoin:round;stroke-linecap:round}
+.car .bp .d{stroke:rgba(233,238,244,.42);stroke-width:.75}
+.car .bp .c{stroke:rgba(79,141,255,.6);stroke-width:.6;stroke-dasharray:5 3}
+.car .dim{fill:none;stroke:var(--accent);stroke-width:.8}
+.car .arrow{fill:var(--accent);stroke:none}
+.car text{fill:var(--fg);font-family:var(--mono);font-weight:600;font-size:46px;letter-spacing:2px}
+.car:hover .bp{stroke:#fff}
+@media(max-width:420px){.car svg{height:46px}.logo small{display:none}}
+
+/* intro: the studio name appears in the middle of the first screen */
+.intro{position:relative;display:grid;place-items:center;min-height:max(420px,min(calc(100svh - 64px),760px));overflow:hidden;border-bottom:1px solid var(--line);
+  background:radial-gradient(55% 45% at 50% 50%,rgba(79,141,255,.13),transparent 70%),var(--bg)}
+.intro-in{display:grid;justify-items:center;padding-inline:var(--gut-l) var(--gut-r);text-align:center}
+.brand{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,8.4vw,6.4rem);line-height:1.02;letter-spacing:-.02em;margin:0}
+.brand:not(.ready){visibility:hidden}
+.brand .w{display:inline-block;white-space:nowrap}
+.brand .w.u{color:var(--accent)}
+.brand .w.s{font-weight:500}
+.brand .ch{display:inline-block;opacity:0;transform:translateY(.3em);filter:blur(12px);animation:chIn 1s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes chIn{to{opacity:1;transform:none;filter:blur(0)}}
+.beam{width:min(78vw,860px);height:1px;margin-top:clamp(18px,3vw,30px);background:linear-gradient(90deg,transparent,var(--accent) 30%,var(--lamp) 50%,var(--accent) 70%,transparent);box-shadow:0 0 14px rgba(79,141,255,.7);transform:scaleX(0);animation:beam 1.6s cubic-bezier(.2,.8,.2,1) .9s forwards}
+@keyframes beam{to{transform:scaleX(1)}}
+.brand-sub{margin-top:clamp(18px,2.8vw,30px);font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,2.5vw,1.65rem);line-height:1.3;letter-spacing:-.005em;color:var(--fg);text-wrap:balance;opacity:0;transform:translateY(8px);animation:subIn 1.2s ease 1.6s forwards}
+.brand-sub b{color:var(--accent);font-weight:800}
+@keyframes subIn{to{opacity:1;transform:none}}
+.scrollhint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:0;animation:subIn2 1s ease 2.4s forwards}
+@keyframes subIn2{to{opacity:.8}}
+@media(prefers-reduced-motion:reduce){.brand .ch,.brand-sub,.scrollhint{opacity:1;transform:none;filter:none}.scrollhint{transform:translateX(-50%)}.beam{transform:none}}
+
+/* hero */
+.hero{padding-block:64px 72px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 50% at 75% 40%,rgba(79,141,255,.16),transparent 70%),
+  repeating-linear-gradient(90deg,transparent 0 119px,rgba(255,255,255,.03) 119px 120px);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;position:relative}
+.hero-grid>*{min-width:0}
+.loc{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.8rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:22px}
+.loc i{width:7px;height:7px;border-radius:50%;background:#3ad07a;box-shadow:0 0 0 4px rgba(58,208,122,.18)}
+.hero h1{font-size:clamp(2.1rem,5.6vw,4rem);font-weight:800;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{margin-bottom:30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.facts div{padding:18px 16px 0 0}
+.facts b{display:block;font-family:var(--display);font-size:1.35rem;font-weight:700}
+.facts span{font-size:.82rem;color:var(--muted)}
+
+/* panel visual */
+.panel-shot{position:relative;aspect-ratio:4/3.4;max-width:100%;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#05070a;user-select:none;touch-action:pan-y}
+.panel-shot canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.panel-shot #cAfter{clip-path:inset(0 0 0 50%)}
+.panel-shot input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4;margin:0}
+.ph{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--lamp);z-index:3;pointer-events:none;box-shadow:0 0 18px rgba(255,255,255,.5)}
+.ph::after{content:"";position:absolute;top:50%;left:50%;width:42px;height:42px;transform:translate(-50%,-50%);border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(79,141,255,.25),0 0 22px rgba(79,141,255,.6)}
+.chip{position:absolute;bottom:14px;z-index:3;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;border-radius:999px;background:rgba(5,7,10,.75);border:1px solid var(--line)}
+.chip.l{left:14px}.chip.r{right:14px;color:var(--accent)}
+.shot-note{font-size:.8rem;color:var(--muted);margin-top:12px;font-family:var(--mono)}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+@media(max-width:420px){.facts b{font-size:1.1rem}}
+
+/* price list */
+.band{background:var(--panel);border-block:1px solid var(--line)}
+.price-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.plist{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.prow{display:flex;align-items:baseline;gap:12px;padding:18px 0;border-bottom:1px solid var(--line)}
+.prow .n{font-weight:600;min-width:0}
+.prow .n small{display:block;font-weight:400;color:var(--muted);font-size:.84rem;margin-top:2px}
+.prow .dots{flex:1;border-bottom:1px dotted #3a4452;transform:translateY(-5px);min-width:20px}
+.prow .p{font-family:var(--mono);font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+.prow .p small{color:var(--muted);font-size:.85em;margin-right:4px}
+@media(max-width:760px){.plist{grid-template-columns:1fr}}
+.extra{margin-top:32px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.extra>span{color:var(--muted);font-size:.9rem;margin-right:6px}
+.tagx{font-size:.85rem;padding:8px 14px;border-radius:999px;background:var(--panel2);border:1px solid var(--line)}
+
+/* polishing tiers */
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:4px}
+.seg button{font:600 .88rem var(--body);color:var(--muted);background:transparent;border:0;padding:10px 18px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.tier{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px 26px;display:flex;flex-direction:column;gap:14px;position:relative}
+.tier.hot{border-color:var(--accent);background:linear-gradient(180deg,rgba(79,141,255,.1),var(--panel) 55%)}
+.tier .badge{position:absolute;top:-12px;left:26px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:#04101f;padding:4px 10px;border-radius:999px;font-weight:500}
+.tier h3{font-size:1.15rem}
+.meter{display:flex;gap:4px}
+.meter i{flex:1;height:5px;border-radius:3px;background:var(--line)}
+.meter i.on{background:var(--accent)}
+.meter-l{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin-top:-6px}
+.tier p{color:var(--muted);font-size:.93rem}
+.tier ul{list-style:none;margin:0;padding:0;font-size:.9rem;display:grid;gap:8px}
+.tier li{display:flex;gap:10px}
+.tier li::before{content:"";flex:0 0 14px;height:14px;margin-top:5px;border-radius:50%;border:2px solid var(--accent)}
+.tier .amt{font-family:var(--display);font-size:2rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:auto;padding-top:8px}
+.tier .amt small{font-family:var(--body);font-size:.85rem;color:var(--muted);font-weight:500;display:block}
+@media(max-width:860px){.tiers{grid-template-columns:1fr}}
+
+/* portfolio */
+.wtabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:28px}
+.wtabs button{font:700 .95rem var(--body);color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;text-align:left;min-width:0}
+.wtabs button small{display:block;font-weight:500;font-size:.78rem;color:var(--muted);margin-top:2px}
+.wtabs button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+@media(max-width:760px){.wtabs{grid-template-columns:1fr 1fr}}
+.wgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;margin-top:32px;align-items:start}
+.wgrid>*{min-width:0}
+.winfo h3{font-size:1.5rem;margin-bottom:10px}
+.wsvc{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.winfo p{color:var(--muted)}
+.wprice{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:.93rem;display:flex;justify-content:space-between;gap:12px}
+.wprice span{color:var(--muted)}
+.wprice b{font-family:var(--mono);font-weight:500;white-space:nowrap}
+.wviews{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.wviews button{font:600 .85rem var(--body);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.wviews button[aria-pressed="true"]{color:var(--bg);background:var(--fg);border-color:var(--fg)}
+.wpair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wpair figure{margin:0;position:relative;aspect-ratio:3/4;max-width:100%;border-radius:16px;overflow:hidden;background:#05070a;border:1px solid var(--line)}
+.wpair figure{transition:transform .3s ease,box-shadow .3s ease}
+@media(hover:hover){.wpair figure:hover{transform:scale(1.12);z-index:2;box-shadow:0 18px 40px -12px rgba(0,0,0,.8),0 0 0 1px var(--accent)}}
+.wpair img,.wpair video{width:100%;height:100%;object-fit:cover;display:block}
+.chip.a{color:var(--accent)}
+.wpair figure{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:rgba(5,7,10,.95);
+  padding:calc(64px + env(safe-area-inset-top,0px)) var(--gut-r) calc(64px + env(safe-area-inset-bottom,0px)) var(--gut-l)}
+.lb-in{min-width:0;max-width:100%}
+.lb-in img,.lb-in video{display:block;max-width:100%;max-height:calc(100svh - 140px);width:auto;height:auto;border-radius:14px}
+.lb-x{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--panel2);color:var(--fg);font-size:1.6rem;line-height:1;cursor:pointer}
+.lb-cap{bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%)}
+.lb-open,.lb-open body{overflow:hidden}
+.lb-open .fab{display:none!important}
+@media(max-width:560px){
+  .price-head .seg{display:grid;grid-template-columns:1fr 1fr;width:100%;border-radius:14px}
+  .price-head .seg button{border-radius:10px;padding:10px 8px;font-size:.84rem;line-height:1.25}
+}
+@media(max-width:860px){.wgrid{grid-template-columns:1fr;gap:24px}}
+
+/* address */
+.addr{margin-top:22px;padding:18px;border-radius:14px;background:var(--panel2);display:grid;gap:14px}
+.addr b{font-family:var(--display);font-size:1.2rem;font-weight:700;display:block}
+.addr small{color:var(--muted);font-size:.85rem}
+.btn.sm{padding:10px 16px;font-size:.85rem}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;counter-reset:s}
+.step{position:relative;padding:20px 18px 22px;border:1px solid transparent;border-top:2px solid rgba(79,141,255,.5);border-radius:2px 2px 12px 12px;transition:border-color .25s,box-shadow .25s}
+.step:hover{border-color:var(--accent);box-shadow:0 0 14px rgba(79,141,255,.55),inset 0 0 14px rgba(79,141,255,.12)}
+.step::before{counter-increment:s;content:"Этап " counter(s);font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.sicons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.sicons svg{display:block;height:clamp(44px,7vw,68px);width:auto;margin-left:18px;fill:none;stroke:var(--fg);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:480px){.sicons svg{margin-left:4px}}
+.step h3{font-family:var(--body);font-weight:700;font-size:1.08rem;margin:8px 0 6px;letter-spacing:0}
+.step p{color:var(--muted);font-size:.92rem}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* faq */
+.faq{max-width:820px;margin-top:28px}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:22px 0;font-weight:700;font-size:1.05rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent);font-size:1.3rem;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding-bottom:22px;max-width:65ch}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.contact>*{min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:30px}
+.phones{display:grid;gap:22px}
+.btn svg{width:18px;height:18px;flex:0 0 auto}
+.btn.wa svg{color:#25d366}
+.btn.tg svg{color:#2aabee}
+.btn.ig svg{color:#e1306c}
+.btn.av svg{color:var(--accent)}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.socials .btn{padding:11px 16px;font-size:.88rem}
+.note{margin-top:10px;font-size:.74rem;line-height:1.4;color:var(--muted)}
+@media(max-width:520px){
+  .phones .row,.socials{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .phones .row .btn,.socials .btn{justify-content:center;padding-inline:10px}
+  .phones .row .copy,.socials .av{grid-column:1/-1}
+}
+.phone{font-family:var(--display);font-size:clamp(1.3rem,3.6vw,1.8rem);font-weight:700;user-select:all;font-variant-numeric:tabular-nums;margin:2px 0 10px;word-break:break-word}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.kv{display:grid;gap:0;margin-top:26px}
+.kv div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid var(--line);font-size:.93rem}
+.kv span{color:var(--muted)}
+.kv b{font-weight:600;text-align:right}
+
+
+
+
+.toast{font-family:var(--mono);font-size:.8rem;color:#3ad07a;min-height:1.2em;margin-top:10px}
+@media(max-width:860px){.contact{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.84rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;display:none;align-items:center;gap:8px;padding:14px 20px;border-radius:999px;background:var(--accent);color:#04101f;font-weight:700;text-decoration:none;box-shadow:0 10px 30px -6px rgba(0,0,0,.7)}
+.fab svg{width:18px;height:18px}
+.fab{transition:opacity .25s,transform .25s}
+.fab.away{opacity:0;transform:translateY(16px);pointer-events:none}
+@media(max-width:900px){.fab{display:inline-flex}footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">G.A.S. <span>UNITY</span><small>STUDIO</small></a>
+    <ul>
+      <li><a href="#prices">Цены</a></li>
+      <li><a href="#polish">Полировка</a></li>
+      <li><a href="#works">Работы</a></li>
+      <li><a href="#steps">Как записаться</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <a class="car" href="#contacts" aria-label="Записаться"><svg viewBox="40 440 660 232" aria-hidden="true">
+      <defs>
+        <marker id="bpa" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" orient="auto"><path class="arrow" d="M0,1.5L10,5L0,8.5Z"/></marker>
+      </defs>
+      <g class="bp">
+        <path d="M57,606 C55,604 55,601 55,598 L55,570 C55,560 58,548 66,540 C75,530 95,522 120,516 C160,508 220,505 268,503 C300,488 340,468 362,459 C380,452 400,448 420,446 C445,445 465,448 478,453 L490,460 C530,470 565,482 597,492 L645,488 C660,494 672,505 678,520 C681,532 682,550 682,574 C682,580 676,584 668,585 L622,589 C612,590 600,591 594,592 C592,556 570,529 542,529 C516,529 492,556 492,596 C488,603 482,606 474,606 L262,605 C250,604 244,600 240,592 C238,556 214,531 186,531 C160,531 134,560 134,602 Z"/>
+        <path d="M318,500 C335,486 352,472 372,463 C400,456 440,455 470,459 C488,462 500,474 504,488 C505,492 501,494 495,494 L334,500 Z"/>
+        <path class="d" d="M452,459 L453,495 M457,459 L458,495"/>
+        <path d="M281,505 C272,530 272,565 285,590 L436,590 C455,560 465,530 461,500"/>
+        <path d="M314,505 C312,497 318,490 326,490 C334,490 339,496 338,503 C333,507 322,508 314,505 Z"/>
+        <path d="M420,521 C430,517 452,517 460,520 C452,524 430,524 420,521 Z"/>
+        <path d="M385,562 C415,560 445,558 470,558 C478,560 475,570 461,571"/>
+        <path class="d" d="M132,516 C180,511 230,508 262,507 M244,597 L488,598 M56,600 L134,604 M500,470 C540,478 570,486 594,494"/>
+        <path d="M60,547 C74,540 92,534 112,531 M56,563 L84,563 C88,563 90,566 90,570 L90,583 C90,587 87,589 84,589 L56,589"/>
+        <path d="M603,495 L640,460 L668,456 L651,478 Z M622,489 L628,484"/>
+        <path d="M671,503 A10 10 0 1 0 671,519"/>
+        <circle cx="186" cy="585" r="46"/><circle cx="186" cy="585" r="32"/>
+        <circle cx="541.5" cy="585" r="46"/><circle cx="541.5" cy="585" r="32"/>
+        <path class="d" d="M70,626 H668"/>
+        <path class="c" d="M186,560 V640 M541.5,560 V640"/>
+      </g>
+      <g class="dim">
+        <path d="M55,612 V666 M682,612 V666"/>
+        <path d="M222,654 H56" marker-end="url(#bpa)"/><path d="M515,654 H681" marker-end="url(#bpa)"/>
+      </g>
+      <text x="368.5" y="669" text-anchor="middle">ЗАПИСАТЬСЯ</text>
+    </svg></a>
+  </div>
+</header>
+
+<main id="top">
+<section class="intro" aria-label="G.A.S. Unity studio">
+  <div class="intro-in">
+    <p class="brand" aria-label="G.A.S. Unity studio"><span class="w">G.A.S.</span> <span class="w u">Unity</span> <span class="w s">studio</span></p>
+    <div class="beam" aria-hidden="true"></div>
+    <div class="brand-sub">Желание видеть результат приводит к нам<b>.</b></div>
+  </div>
+  <span class="scrollhint">листайте вниз ↓</span>
+</section>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="loc"><i></i>СПб, Кубинская, 21 · ежедневно 9:00–24:00</div>
+      <h1>Восстановим кузов <em>для продажи</em> или для души</h1>
+      <p class="lead">Полировка, химчистка и детейлинг. Уберём царапины, паутинку и голограммы, закроем лак керамикой. Осмотр под профессиональным светом, покажем состояние кузова и подскажем нужный вид полировки.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contacts">Записаться на осмотр</a>
+        <a class="btn ghost" href="#prices">Цены</a>
+      </div>
+      <div class="facts">
+        <div><b>1–2 дня</b><span>срок работ, SUV 2–3</span></div>
+        <div><b>0 ₽</b><span>осмотр под светом</span></div>
+        <div><b>Выезд</b><span>по СПб и ЛО</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="panel-shot" id="shot">
+        <canvas id="cBefore" aria-hidden="true"></canvas>
+        <canvas id="cAfter" aria-hidden="true"></canvas>
+        <div class="ph" id="ph"></div>
+        <span class="chip l">До</span><span class="chip r">После</span>
+        <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Сравнить лак до и после полировки">
+      </div>
+      <p class="shot-note">← потяните: лак под лампой до и после полировки</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="prices">
+  <div class="wrap">
+    <div class="price-head">
+      <div>
+        <div class="eyebrow">Прайс-лист</div>
+        <h2>Услуги и цены</h2>
+        <p class="lead">Легковые любого класса, от седана до внедорожника. Итоговую цену назовём после осмотра.</p>
+      </div>
+    </div>
+    <div class="plist">
+      <div class="prow"><div class="n">Полировка кузова<small>3 уровня на выбор, ниже</small></div><i class="dots"></i><div class="p"><small>от</small><span data-price="Полировка лёгкая">9 900</span> ₽</div></div>
+      <div class="prow"><div class="n">Абразивная полировка кузова<small>для глубоких дефектов лака</small></div><i class="dots"></i><div class="p"><small>от</small><span data-price="Абразивная полировка кузова">13 000</span> ₽</div></div>
+      <div class="prow"><div class="n">Предпродажная подготовка<small>кузов и салон к показу покупателю</small></div><i class="dots"></i><div class="p"><small>от</small><span data-price="Предпродажная подготовка">18 000</span> ₽</div></div>
+      <div class="prow"><div class="n">Детейлинг<small>кузов, салон, защита</small></div><i class="dots"></i><div class="p"><small>от</small><span data-price="Детейлинг">20 000</span> ₽</div></div>
+      <div class="prow"><div class="n">Автохимчистка<small>сиденья, потолок, ковры</small></div><i class="dots"></i><div class="p"><small>от</small><span data-price="Автохимчистка">8 000</span> ₽</div></div>
+      <div class="prow"><div class="n">Антибактериальная обработка<small>салон и кондиционер</small></div><i class="dots"></i><div class="p"><small>от</small><span data-price="Антибактериальная обработка">8 000</span> ₽</div></div>
+      <div class="prow"><div class="n">Защитное покрытие<small>керамика и защитные составы</small></div><i class="dots"></i><div class="p"><small>от</small><span data-price="Защитное покрытие">3 000</span> ₽</div></div>
+      <div class="prow"><div class="n">Полировка фар<small>убираем помутнение</small></div><i class="dots"></i><div class="p"><small>от</small><span data-price="Полировка фар">1 500</span> ₽</div></div>
+    </div>
+    <div class="extra">
+      <span>Цена по запросу:</span>
+      <span class="tagx">Оклейка полиуретаном</span>
+      <span class="tagx">Оклейка винилом</span>
+      <span class="tagx">Шумо- и виброизоляция</span>
+      <span class="tagx">Установка обвесов</span>
+      <span class="tagx">Автозвук</span>
+    </div>
+  </div>
+</section>
+
+<section id="polish">
+  <div class="wrap">
+    <div class="price-head">
+      <div>
+        <div class="eyebrow">Полировка</div>
+        <h2>Три уровня полировки</h2>
+        <p class="lead">Какой нужен вашему лаку, покажем на бесплатном осмотре.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Тип кузова">
+        <button type="button" id="bSedan" aria-pressed="true">Седан / универсал</button>
+        <button type="button" id="bSuv" aria-pressed="false">Внедорожник / кроссовер</button>
+      </div>
+    </div>
+    <div class="tiers">
+      <article class="tier">
+        <h3>Лёгкая</h3>
+        <div class="meter"><i class="on"></i><i></i><i></i></div>
+        <div class="meter-l">для свежего лака</div>
+        <p>Мелкие царапины, паутинка, голограммы.</p>
+        <ul><li>Мойка и подготовка кузова</li><li>Одноэтапная полировка</li><li>Фотоотчёт до и после</li></ul>
+        <div class="amt" data-tier="Полировка лёгкая" data-s="9 900" data-u="14 000">9 900 ₽<small>седан / универсал</small></div>
+      </article>
+      <article class="tier hot">
+        <span class="badge">Чаще выбирают</span>
+        <h3>Средняя</h3>
+        <div class="meter"><i class="on"></i><i class="on"></i><i></i></div>
+        <div class="meter-l">убирает ~80% дефектов</div>
+        <p>Потёртости и заметные царапины, возвращает глубину цвета.</p>
+        <ul><li>Всё из лёгкой</li><li>Многоэтапная полировка</li><li>Керамическое покрытие</li></ul>
+        <div class="amt" data-tier="Полировка средняя" data-s="15 000" data-u="19 000">15 000 ₽<small>седан / универсал</small></div>
+      </article>
+      <article class="tier">
+        <h3>Глубокая</h3>
+        <div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="meter-l">до заводского блеска</div>
+        <p>Тусклый лак, глубокие царапины, матовые пятна.</p>
+        <ul><li>Всё из лёгкой</li><li>Абразивная многоэтапная полировка</li><li>Керамическое покрытие</li></ul>
+        <div class="amt" data-tier="Полировка глубокая" data-s="20 000" data-u="25 000">20 000 ₽<small>седан / универсал</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="works">
+  <div class="wrap">
+    <div class="eyebrow">Наши работы</div>
+    <h2>До и после</h2>
+    <p class="lead">Машины наших клиентов, снятые в студии до и после работ.</p>
+    <div class="wtabs" id="wtabs" role="group" aria-label="Автомобиль"></div>
+    <div class="wgrid">
+      <div class="winfo">
+        <div class="wsvc" id="wsvc"></div>
+        <h3 id="wcar"></h3>
+        <p id="wtext"></p>
+        <div class="wprice"><span>Похожая работа</span><b id="wprice"></b></div>
+        <div class="wviews" id="wviews" role="group" aria-label="Ракурс"></div>
+      </div>
+      <div class="wpair" id="wpair"></div>
+    </div>
+  </div>
+</section>
+
+<section id="steps">
+  <div class="wrap">
+    <div class="eyebrow">Как записаться</div>
+    <div class="sicons" role="img" aria-label="Звонок, договорённость, полировка, довольный клиент">
+      <svg viewBox="0 0 24 24"><rect x="3" y="2" width="12" height="20" rx="2.5"/><path d="M7.5 4.8h3M8 19h2"/><path d="M18 7.5a5 5 0 0 1 0 5M20.5 5a8.5 8.5 0 0 1 0 10"/></svg>
+      <svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
+      <svg viewBox="0 0 24 24"><rect x="1" y="4" width="15.5" height="6.5" rx="3.25"/><path d="M16.5 4h2.5a2.5 2.5 0 0 1 2.5 2.5V13h-8v-2.5"/><path d="M4.5 7.25h6"/><path d="M17.5 13v2.5"/><rect x="11" y="15.5" width="13" height="3.5" rx="1.75"/><path d="M12 21.8c3.2 1.1 7.8 1.1 11 0"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Звонок или чат</h3><p>Телефон, WhatsApp, Telegram или Авито, ежедневно 8:00–24:00.</p></div>
+      <div class="step"><h3>Осмотр под светом</h3><p>Показываем дефекты и подбираем уровень полировки.</p></div>
+      <div class="step"><h3>Работа</h3><p>1–2 дня, внедорожники 2–3 дня.</p></div>
+      <div class="step"><h3>Выдача</h3><p>Фотоотчёт по каждому этапу и рекомендации по уходу.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Вопросы</div>
+    <h2>Частые вопросы</h2>
+    <div class="faq">
+      <details><summary>Входит ли керамика в стоимость?</summary><p>Да, в средней и глубокой полировке. Отдельно защитное покрытие стоит от <span data-price="Защитное покрытие">3 000</span> ₽.</p></details>
+      <details><summary>Можно приехать к нам, а не в студию?</summary><p>Да, выезжаем по Санкт-Петербургу и Ленинградской области. Условия уточните по телефону.</p></details>
+      <details><summary>Как ухаживать за авто после керамики?</summary><p>Первые 1–2 недели не мойте машину. Дальше бесконтактная мойка и нейтральная автохимия. Подробные рекомендации дадим при выдаче.</p></details>
+      <details><summary>Что входит в предпродажную подготовку?</summary><p>Полировка кузова и чистка салона, чтобы авто хорошо выглядело на фото и при осмотре покупателем. От <span data-price="Предпродажная подготовка">18 000</span> ₽.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap contact">
+    <div>
+      <div class="eyebrow">Контакты</div>
+      <h2>Запишитесь на бесплатный осмотр</h2>
+      <p class="lead">Позвоните или напишите в WhatsApp, Telegram или на Авито. Назовём свободное время и предварительную стоимость.</p>
+      <div class="addr">
+        <div><small>Адрес студии</small><b>Кубинская ул., 21</b><small>Санкт-Петербург</small></div>
+        <div class="row">
+          <a class="btn primary sm" href="https://yandex.ru/maps/2/saint-petersburg/?text=%D0%9A%D1%83%D0%B1%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2021%2C%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3" target="_blank" rel="noopener">Яндекс Карты</a>
+          <a class="btn ghost sm" href="https://2gis.ru/spb/search/%D0%9A%D1%83%D0%B1%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%2021" target="_blank" rel="noopener">2ГИС</a>
+          <a class="btn ghost sm" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%9A%D1%83%D0%B1%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2021%2C%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3" target="_blank" rel="noopener">Google Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="call">
+      <div class="eyebrow">Телефоны</div>
+      <div class="phones">
+        <div>
+          <div class="phone" id="phone1">+7 951 651-47-62</div>
+          <div class="row"><a class="btn primary sm" href="tel:+79516514762">Позвонить</a><a class="btn ghost sm wa" href="https://wa.me/79516514762" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3.6 20.4l1.2-4.1A8.4 8.4 0 1 1 8 19.3z"/><path fill="currentColor" d="M9.2 7.6c.3-.6.6-.6.9-.6h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.6l-.6.7c-.1.1-.2.3 0 .5.7 1.2 1.6 2 2.8 2.6.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.4 0 .5-.1 1.1-.6 1.5-.5.4-1.2.7-2 .6-1.9-.3-4.6-1.8-6-4.4-.6-1.1-.8-2-.6-2.9.1-.5.4-1 .9-1.3z"/></svg>WhatsApp</a><button class="btn ghost sm copy" type="button" id="copy1" data-t="phone1">Скопировать</button></div>
+        </div>
+        <div>
+          <div class="phone" id="phone2">+7 963 249-12-94</div>
+          <div class="row"><a class="btn primary sm" href="tel:+79632491294">Позвонить</a><a class="btn ghost sm wa" href="https://wa.me/79632491294" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3.6 20.4l1.2-4.1A8.4 8.4 0 1 1 8 19.3z"/><path fill="currentColor" d="M9.2 7.6c.3-.6.6-.6.9-.6h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.6l-.6.7c-.1.1-.2.3 0 .5.7 1.2 1.6 2 2.8 2.6.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.4 0 .5-.1 1.1-.6 1.5-.5.4-1.2.7-2 .6-1.9-.3-4.6-1.8-6-4.4-.6-1.1-.8-2-.6-2.9.1-.5.4-1 .9-1.3z"/></svg>WhatsApp</a><button class="btn ghost sm copy" type="button" id="copy2" data-t="phone2">Скопировать</button></div>
+        </div>
+      </div>
+      <div class="socials"><a class="btn ghost tg" href="https://t.me/GasUnity812" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" d="M21 4.5L3 11.4l5.6 2.1L19 7 10.6 15v4.6l3-3.3 4.6 3.5z"/></svg>Telegram</a><a class="btn ghost ig" href="https://www.instagram.com/g.a.sunity_studio/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>Instagram*</a><a class="btn ghost av" href="https://www.avito.ru/8187031871" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 5h16v11H9.5L4 20z"/></svg>Авито</a></div>
+      <p class="note">* Instagram принадлежит компании Meta, признанной в России экстремистской и запрещённой.</p>
+      <div class="toast" id="toast" aria-live="polite"></div>
+      <div class="kv">
+        <div><span>Адрес</span><b>СПб, Кубинская ул., 21</b></div>
+        <div><span>Студия</span><b>Ежедневно, 9:00–24:00</b></div>
+        <div><span>Звонки и чат</span><b>Ежедневно, 8:00–24:00</b></div>
+        <div><span>Выезд</span><b>По СПб и Ленобласти</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© G.A.S. Unity studio · детейлинг в Санкт-Петербурге</span>
+    <span>Цены «от», итог после осмотра</span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden><button class="lb-x" type="button" aria-label="Закрыть">×</button><div class="lb-in" id="lbIn"></div><span class="chip lb-cap" id="lbCap"></span></div>
+
+<a class="fab" id="fab" href="#call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Позвонить</a>
+
+<script>
+// page language for screen readers, translators and search
+document.documentElement.lang='ru';
+
+// prices: every number on the page comes from the price block at the top of this file
+var PR=window.PRICES||{};
+function fmtPrice(v){var n=String(v).replace(/\s+/g,'');return /^\d+$/.test(n)?n.replace(/\B(?=(\d{3})+(?!\d))/g,' '):String(v).trim();}
+function priceOf(key,i){var v=PR[key];if(v==null)return null;if(Array.isArray(v))v=v[i||0];return v==null?null:fmtPrice(v);}
+function priceText(key,i,from){var p=priceOf(key,i);return p==null?'по запросу':(from?'от ':'')+p+' ₽';}
+document.querySelectorAll('[data-price]').forEach(function(el){var p=priceOf(el.dataset.price,0);if(p)el.textContent=p;});
+document.querySelectorAll('.amt[data-tier]').forEach(function(a){
+  var s=priceOf(a.dataset.tier,0),u=priceOf(a.dataset.tier,1);
+  if(s){a.dataset.s=s;a.firstChild.nodeValue=s+' ₽';}
+  if(u)a.dataset.u=u;
+});
+
+// body type toggle
+(function(){
+  var bs=document.getElementById('bSedan'),bu=document.getElementById('bSuv');
+  function set(suv){
+    bs.setAttribute('aria-pressed',!suv);bu.setAttribute('aria-pressed',suv);
+    document.querySelectorAll('.amt').forEach(function(a){
+      a.innerHTML=(suv?a.dataset.u:a.dataset.s)+' ₽<small>'+(suv?'внедорожник / кроссовер':'седан / универсал')+'</small>';
+    });
+  }
+  bs.onclick=function(){set(false)};bu.onclick=function(){set(true)};
+})();
+
+// portfolio
+(function(){
+  var W=[
+    {car:'Toyota Camry',tab:'Полировка',svc:'Средняя полировка кузова',price:priceText('Полировка средняя',0),
+     text:'Многоэтапная полировка и керамическое покрытие. Перед работой закрыли уплотнители и пластик малярной лентой.',
+     views:[
+      {n:'Капот под лампой',b:['camry-4.jpg','В работе'],a:['camry-reveal.jpg','Результат']},
+      {n:'Готовый авто',b:['camry-1.jpg','Спереди'],a:['camry-3.jpg','Сзади']}]},
+    {car:'Toyota Highlander',tab:'Детейлинг',svc:'Химчистка с разбором салона + лёгкая полировка',price:priceText('Детейлинг',0,true),
+     text:'Сняли сиденья и пластик, вычистили ковролин и скрытые места под обшивкой. Кузов освежили лёгкой полировкой.',
+     views:[
+      {n:'Салон целиком',b:['highlender-33.jpg','До'],a:['highlender-19.jpg','После']},
+      {n:'Водительская сторона',b:['highlender-30.jpg','До'],a:['highlender-17.jpg','После']},
+      {n:'Второй ряд',b:['highlender-31.jpg','До'],a:['highlender-18.jpg','После']}]},
+    {car:'Hyundai Elantra',tab:'Химчистка',svc:'Химчистка салона',price:priceText('Автохимчистка',0,true),
+     text:'Ковролин, сиденья, пороги и пластик. Убрали въевшуюся грязь и разводы с пола.',
+     views:[
+      {n:'Водительская сторона',b:['elantra-16.jpg','До'],a:['elantra-7.jpg','После']},
+      {n:'Задний диван',b:['elantra-25.jpg','До'],a:['elantra-3.jpg','После']}]},
+    {car:'Nissan Qashqai',tab:'Шумоизоляция',svc:'Шумоизоляция в 5 слоёв',price:'по запросу',
+     text:'Салон, двери и багажник. Разобрали машину до металла и уложили пять слоёв вибро- и шумоизоляции.',
+     views:[
+      {n:'Пол и багажник',m:[['qashqai-5.jpg','Металл'],['qashqai-7.jpg','Виброизоляция'],['qashqai-8.jpg','Шумоизоляция']]},
+      {n:'Двери',b:['qashqai-14.jpg','Внутри'],a:['qashqai-15.jpg','Снаружи']}]}
+  ];
+  // full-screen view of a photo or the video, tap anywhere to close
+  var lb=document.getElementById('lb'),lbIn=document.getElementById('lbIn'),lbCap=document.getElementById('lbCap');
+  function openLb(el,label){
+    var c=el.cloneNode(true);
+    if(c.tagName==='VIDEO'){c.muted=true;c.controls=false;var pv=c.play();if(pv&&pv.catch)pv.catch(function(){c.controls=true});}
+    lbIn.replaceChildren(c);lbCap.textContent=label;lb.hidden=false;document.documentElement.classList.add('lb-open');
+  }
+  function closeLb(){lb.hidden=true;lbIn.replaceChildren();document.documentElement.classList.remove('lb-open');}
+  lb.addEventListener('click',closeLb);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)closeLb();});
+  var tabs=document.getElementById('wtabs'),views=document.getElementById('wviews'),
+      pair=document.getElementById('wpair');
+  function media(m,after){
+    var fig=document.createElement('figure'),src='work/'+m[0],el;
+    if(/\.mp4$/.test(src)){el=document.createElement('video');el.muted=true;el.defaultMuted=true;el.loop=true;el.autoplay=true;el.playsInline=true;el.preload='auto';['muted','playsinline','autoplay','loop'].forEach(function(a){el.setAttribute(a,'')});el.poster=src.replace(/\.mp4$/,'.jpg');el.src=src;var pv=el.play();if(pv&&pv.catch)pv.catch(function(){el.controls=true});}
+    else{el=document.createElement('img');el.src=src;el.alt=m[1];el.decoding='async';}
+    var c=document.createElement('figcaption');c.className='chip l'+(after?' a':'');c.textContent=m[1];
+    fig.append(el,c);fig.tabIndex=0;fig.setAttribute('role','button');fig.setAttribute('aria-label','Открыть фото: '+m[1]);
+    fig.addEventListener('click',function(){openLb(el,m[1])});
+    fig.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(el,m[1]);}});
+    return fig;
+  }
+  function showView(w,i){
+    var v=w.views[i],list=v.m||[v.b,v.a];
+    pair.style.gridTemplateColumns='repeat('+list.length+',1fr)';
+    pair.replaceChildren.apply(pair,list.map(function(m,j){return media(m,j>0)}));
+    [].forEach.call(views.children,function(b,j){b.setAttribute('aria-pressed',j===i)});
+  }
+  function showCar(k){
+    var w=W[k];
+    document.getElementById('wsvc').textContent=w.svc;
+    document.getElementById('wcar').textContent=w.car;
+    document.getElementById('wtext').textContent=w.text;
+    document.getElementById('wprice').textContent=w.price;
+    views.replaceChildren();
+    w.views.forEach(function(v,i){var b=document.createElement('button');b.type='button';b.textContent=v.n;b.onclick=function(){showView(w,i)};views.appendChild(b);});
+    [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-pressed',j===k)});
+    showView(w,0);
+  }
+  W.forEach(function(w,k){
+    var b=document.createElement('button');b.type='button';b.id='wtab'+k;
+    b.innerHTML=w.car.split(' ')[1]+'<small>'+w.tab+'</small>';
+    b.onclick=function(){showCar(k)};tabs.appendChild(b);
+  });
+  showCar(0);
+})();
+
+// floating call button leads to the phone numbers and steps aside once they are on screen
+(function(){
+  var fab=document.getElementById('fab'),seen={};
+  if(!('IntersectionObserver' in window))return;
+  // hidden over the opening screen and over the phone numbers themselves
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){seen[e.target.id||'intro']=e.isIntersecting;});
+    fab.classList.toggle('away',!!(seen.intro||seen.call));
+  },{threshold:.25});
+  io.observe(document.querySelector('.intro'));io.observe(document.getElementById('call'));
+})();
+
+// copy phone
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var t=document.getElementById('toast'),el=document.getElementById(btn.dataset.t),txt=el.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);t.textContent='Номер '+txt+' выделен, скопируйте его';}
+    try{navigator.clipboard.writeText(txt).then(function(){t.textContent='Номер '+txt+' скопирован';},sel);}catch(e){sel();}
+  });
+});
+
+// paint panel before/after
+(function(){
+  var shot=document.getElementById('shot'),cb=document.getElementById('cBefore'),ca=document.getElementById('cAfter'),
+      range=document.getElementById('baRange'),ph=document.getElementById('ph');
+  function rnd(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646;}}
+  function base(ctx,w,h){
+    var g=ctx.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,'#0c1a33');g.addColorStop(.45,'#05090f');g.addColorStop(1,'#0a1628');
+    ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+    var c=ctx.createLinearGradient(0,h*.62,0,h*.72);
+    c.addColorStop(0,'rgba(120,160,230,0)');c.addColorStop(.5,'rgba(120,160,230,.14)');c.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=c;ctx.fillRect(0,h*.6,w,h*.14);
+  }
+  // two floodlights reflected in the panel: left one lands in "before", right one in "after"
+  var LAMPS=[[.27,.4],[.73,.4]];
+  function lamps(ctx,w,h,dirty){
+    LAMPS.forEach(function(p){
+      var x=w*p[0],y=h*p[1],lw=w*.085,lh=h*.07;
+      var g=ctx.createRadialGradient(x,y,0,x,y,w*(dirty?.2:.09));
+      g.addColorStop(0,'rgba(225,235,250,'+(dirty?.22:.28)+')');g.addColorStop(1,'rgba(225,235,250,0)');
+      ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+      ctx.save();ctx.shadowColor='rgba(235,242,255,.95)';ctx.shadowBlur=dirty?w*.05:w*.015;
+      ctx.fillStyle=dirty?'rgba(240,244,250,.82)':'#f6f9ff';
+      ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x-lw/2,y-lh/2,lw,lh,lh*.12);else ctx.rect(x-lw/2,y-lh/2,lw,lh);ctx.fill();ctx.restore();
+    });
+  }
+  function swirls(ctx,w,h,d,R){
+    ctx.lineCap='round';
+    LAMPS.forEach(function(p){
+      var cx=w*p[0],cy=h*p[1],R0=w*.36;
+      // holograms: short arcs concentric to the light, densest and brightest near the hotspot
+      for(var i=0;i<1700;i++){
+        var r=R0*(.06+Math.pow(R(),1.15)*.94),span=((5+R()*22)*d)/r,t=R()*Math.PI*2;
+        var al=.5*Math.exp(-Math.pow(r/(R0*.5),2))*(.2+.8*R());
+        if(al<.012)continue;
+        ctx.strokeStyle='rgba(232,240,255,'+al.toFixed(3)+')';ctx.lineWidth=(.35+R()*.45)*d;
+        ctx.beginPath();ctx.arc(cx,cy,r,t,t+span);ctx.stroke();
+      }
+    });
+    // a few long random scratches, barely visible away from the light
+    for(var j=0;j<14;j++){
+      var x=R()*w,y=R()*h,a=R()*Math.PI,l=(40+R()*140)*d,bend=(R()-.5)*40*d;
+      ctx.strokeStyle='rgba(225,235,250,'+(.05+R()*.09).toFixed(3)+')';ctx.lineWidth=.5*d;
+      ctx.beginPath();ctx.moveTo(x,y);
+      ctx.quadraticCurveTo(x+Math.cos(a)*l/2-Math.sin(a)*bend,y+Math.sin(a)*l/2+Math.cos(a)*bend,x+Math.cos(a)*l,y+Math.sin(a)*l);ctx.stroke();
+    }
+  }
+  function draw(){
+    var r=shot.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2),w=Math.round(r.width*d),h=Math.round(r.height*d);
+    if(!w||!h)return;
+    [cb,ca].forEach(function(c){c.width=w;c.height=h;});
+    var b=cb.getContext('2d'),a=ca.getContext('2d');
+    // BEFORE: milky haze, soft hotspot, holograms around the light
+    base(b,w,h);lamps(b,w,h,true);swirls(b,w,h,d,rnd(7));
+    b.fillStyle='rgba(160,170,185,.06)';b.fillRect(0,0,w,h);
+    // AFTER: deep black, crisp mirror reflection
+    base(a,w,h);lamps(a,w,h,false);
+  }
+  function upd(){var v=range.value;ca.style.clipPath='inset(0 0 0 '+v+'%)';ph.style.left=v+'%';}
+  range.addEventListener('input',upd);
+  // drag from anywhere on the panel (on phones the hidden range thumb is hard to hit)
+  var drag=false;
+  function setX(e){var r=shot.getBoundingClientRect();range.value=Math.max(0,Math.min(100,(e.clientX-r.left)/r.width*100));upd();}
+  shot.addEventListener('pointerdown',function(e){drag=true;setX(e);});
+  window.addEventListener('pointermove',function(e){if(drag)setX(e);});
+  ['pointerup','pointercancel'].forEach(function(ev){window.addEventListener(ev,function(){drag=false;});});
+  var t,lw=window.innerWidth;window.addEventListener('resize',function(){if(window.innerWidth===lw)return;lw=window.innerWidth;clearTimeout(t);t=setTimeout(draw,120);});
+  draw();upd();
+})();
+
+// intro: letters of the studio name come in one by one
+(function(){
+  var brand=document.querySelector('.brand'),n=0;
+  brand.querySelectorAll('.w').forEach(function(w){
+    var t=w.textContent;w.textContent='';
+    t.split('').forEach(function(ch){
+      var s=document.createElement('span');s.className='ch';s.textContent=ch;
+      s.setAttribute('aria-hidden','true');s.style.animationDelay=(.15+n++*.07)+'s';w.appendChild(s);
+    });
+  });
+  brand.classList.add('ready');
+})();
+</script>
+</body>
+</html>
